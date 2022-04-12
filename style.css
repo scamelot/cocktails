@@ -1,0 +1,17 @@
+html {
+    background-color: rgb(31,5,18);
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+input {
+    font-size: 2em;
+}
+
+img {
+    height: 300px;
+}
