@@ -38,8 +38,9 @@ class Cocktail {
 
 }
 
-//set us up the shot
+//set up button and initialize list
 let cocktailList = []
+let timeOutList = []
 $('#submit').addEventListener('click', submitSearch)
 
 //push the button
@@ -47,6 +48,12 @@ function submitSearch() {
     let search = $('#search').value
     search.split(' ').join('%20')
     console.log(search)
+    cocktailList = []
+    console.log(timeOutList)
+    timeOutList.forEach(timer => {
+        window.clearTimeout(timer)
+    })
+    console.log(timeOutList)
     getCocktails(search)
 }
 
@@ -54,12 +61,20 @@ function getCocktails(search) {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
-        for (drink of data.drinks) {
-            cocktailList.push(new Cocktail(drink))
+        console.log(data.drinks)
+        //were any found?
+        if (data.drinks) {
+            for (drink of data.drinks) {
+                cocktailList.push(new Cocktail(drink))
+            }
+            $('#drinksFound').innerHTML = `${cocktailList.length} cocktails found:`
+        } else {
+            $('#drinksFound').innerHTML = 'No cocktails found. Try searching for something else.'
         }
+
+        //Start the carousel
         cocktailList.forEach((drink, i) => {
-            setTimeout(
+            timeOutList[i] = setTimeout(
                 function(){
                     updateView(drink)
                 }, i * 8000)
