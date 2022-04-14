@@ -55,6 +55,8 @@ img {
 #output {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    /* justify-content: center; */
     margin: 0 5vw;
     height: 300px;
 }
