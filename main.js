@@ -29,7 +29,7 @@ class Cocktail {
             if (currentIngredient && currentMeasurement) {
                 this.ingredients.push(currentMeasurement + ' ' + currentIngredient)
             }
-            else {
+            else if (currentIngredient) {
             // just the goods
              this.ingredients.push(currentIngredient)   
             }
