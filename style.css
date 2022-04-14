@@ -55,6 +55,12 @@ img {
 #output {
     display: flex;
     flex-direction: row;
-    margin: 0 25vw;
+    margin: 0 5vw;
     height: 300px;
+}
+
+@media screen and (max-width: 800px)  {
+    #output {
+        flex-direction: column;
+    }
 }

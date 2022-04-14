@@ -42,6 +42,12 @@ class Cocktail {
 let cocktailList = []
 let timeOutList = []
 $('#submit').addEventListener('click', submitSearch)
+$('#search').addEventListener('keydown', function enterSearch(e) {
+    if (e.key === 'Enter') {
+        console.log('pressed enter!')
+        submitSearch()
+    }
+})
 
 //push the button
 function submitSearch() {
@@ -49,11 +55,9 @@ function submitSearch() {
     search.split(' ').join('%20')
     console.log(search)
     cocktailList = []
-    console.log(timeOutList)
     timeOutList.forEach(timer => {
         window.clearTimeout(timer)
     })
-    console.log(timeOutList)
     getCocktails(search)
 }
 
