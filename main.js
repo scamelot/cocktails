@@ -58,7 +58,7 @@ function submitSearch() {
 }
 
 function getCocktails(search) {
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`)
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=`+ encodeURIComponent(search))
     .then(response => response.json())
     .then(data => {
         console.log(data.drinks)
@@ -67,7 +67,7 @@ function getCocktails(search) {
             for (drink of data.drinks) {
                 cocktailList.push(new Cocktail(drink))
             }
-            $('#drinksFound').innerHTML = `${cocktailList.length} cocktails found:`
+            $('#drinksFound').innerHTML = `${cocktailList.length} found:`
         } else {
             $('#drinksFound').innerHTML = 'No cocktails found. Try searching for something else.'
         }
