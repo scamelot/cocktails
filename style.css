@@ -30,6 +30,8 @@ button {
 p {
     max-width: 40em;
     text-align: center;
+    display: block;
+    margin: 1em auto;
 }
 
 img {
