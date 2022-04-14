@@ -28,7 +28,8 @@ button {
 
 }
 p {
-    max-width: 50em;
+    max-width: 40em;
+    text-align: center;
 }
 
 img {
