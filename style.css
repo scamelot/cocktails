@@ -65,4 +65,7 @@ img {
     #output {
         flex-direction: column;
     }
+    #search {
+        width: 80%;
+    }
 }
