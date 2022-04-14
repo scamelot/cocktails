@@ -39,3 +39,17 @@ img {
     height: 300px;
     border-radius: 10px;
 }
+#howItsMade {
+    margin: 0 2em;
+    display: flex;
+    flex-direction: column;
+}
+#drinkInstructions {
+    align-self: flex-end;
+}
+#output {
+    display: flex;
+    flex-direction: row;
+    margin: 0 25vw;
+    height: 300px;
+}
