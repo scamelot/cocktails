@@ -12,7 +12,7 @@ class Cocktail {
             let currentIngredient = data[`strIngredient${i}`]
             let currentMeasurement = data[`strMeasure${i}`]
             if (currentIngredient && currentMeasurement) {
-                this.ingredients.push(currentMeasurement + ' of ' + currentIngredient)
+                this.ingredients.push(currentMeasurement + ' ' + currentIngredient)
             }
             else if (currentIngredient && currentMeasurement == '1') {
                 this.ingredients.push(currentMeasurement + ' ' + currentIngredient)
@@ -25,10 +25,13 @@ class Cocktail {
 
 let cocktailList = []
 $('#submit').addEventListener('click', submitSearch)
-
+// $('input').addEventListener('keypress', (e) => {
+//     if (e )
+// })
 
 function submitSearch() {
     let search = $('#search').value
+    search.replace(' ','%20')
     getCocktails(search)
 }
 

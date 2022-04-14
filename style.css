@@ -2,6 +2,11 @@ html {
     background-color: rgb(31,5,18);
     color: white;
     font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    list-style: none;
+}
+li {
+    list-style: none;
 }
 
 h2 {
@@ -10,8 +15,18 @@ h2 {
 
 input {
     font-size: 2em;
+    border-radius: 5px;
 }
+button {
+    background-color: rgb(31,5,18);
+    color: white;
+    display: block;
+    margin: 1em auto;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 1em;
 
+}
 img {
     height: 300px;
 }
