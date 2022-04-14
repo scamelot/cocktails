@@ -2,36 +2,51 @@ const $ = document.querySelector.bind(document)
 
 class Cocktail {
     constructor(data) {
+
+        //all knowledge
         this.data = data
-        this.instructions = data.strInstructions
-        this.image = data.strDrinkThumb
+
+        // What are we drinking?
         this.name = data.strDrink
+        
+        this.instructions = data.strInstructions
+
+        // what does it look like?
+        this.image = data.strDrinkThumb
+
+        //get a fresh glass
         this.glass = data.strGlass
+
+        //mix up a cocktail with ingredients!
         this.ingredients = []
         for (let i=1;i<=15;i++) {
-            let currentIngredient = data[`strIngredient${i}`]
+
+            // get amount and the goods
             let currentMeasurement = data[`strMeasure${i}`]
+            let currentIngredient = data[`strIngredient${i}`]
+
+            // if theres a measurement:
             if (currentIngredient && currentMeasurement) {
                 this.ingredients.push(currentMeasurement + ' ' + currentIngredient)
             }
-            else if (currentIngredient && currentMeasurement == '1') {
-                this.ingredients.push(currentMeasurement + ' ' + currentIngredient)
+            else {
+            // just the goods
+             this.ingredients.push(currentIngredient)   
             }
-        }
     }
-
+    }
 
 }
 
+//set us up the shot
 let cocktailList = []
 $('#submit').addEventListener('click', submitSearch)
-// $('input').addEventListener('keypress', (e) => {
-//     if (e )
-// })
 
+//push the button
 function submitSearch() {
     let search = $('#search').value
-    search.replace(' ','%20')
+    search.split(' ').join('%20')
+    console.log(search)
     getCocktails(search)
 }
 
